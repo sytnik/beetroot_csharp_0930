@@ -14,6 +14,7 @@ ReqMethod(5);
 var str = new TestClass().Method12(ref int1, 2);
 Console.WriteLine(str);
 var myarray = new[] {1, 2, 3};
+Array.Reverse(myarray);
 Array.Resize(ref myarray, 10);
 for (int i = 3; i < myarray.Length; i++)
 {
