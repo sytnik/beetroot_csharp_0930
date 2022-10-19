@@ -190,3 +190,14 @@
         return myArray;
     }
 }
+
+
+public class TestClass
+{
+    int MyVar = 1;
+
+    public void SomeMethod()
+    {
+        MyVar = 2;
+    }
+}
