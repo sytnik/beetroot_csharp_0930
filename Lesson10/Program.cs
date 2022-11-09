@@ -46,19 +46,6 @@ using (FileStream fileStream = new FileStream("Users.json", FileMode.OpenOrCreat
     newdepartment1 = JsonSerializer.Deserialize<Department>(fileStream);
 }
 
-//binary
-var binaryFormat = new BinaryFormatter();
-using (FileStream fileStream = new FileStream("Users.dat", FileMode.OpenOrCreate))
-{
-    binaryFormat.Serialize(fileStream, department);
-}
-
-Department binaryDepartment1;
-using (FileStream fileStream = new FileStream("Users.dat", FileMode.OpenOrCreate))
-{
-    binaryDepartment1 = (Department)binaryFormat.Deserialize(fileStream);
-}
-
 var person1 = new Person(1, "John");
 person1.Id = 1;
 person1.SetPhone("0501234567");
