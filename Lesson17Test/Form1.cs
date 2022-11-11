@@ -2,27 +2,35 @@ namespace Lesson17Test;
 
 public partial class Form1 : Form
 {
-    public List<SomeData> DataList;
+    private EventHandler showEventHandler;
 
     public Form1()
     {
         InitializeComponent();
-        button1.Click += delegate { NewMethod(); };
+        showEventHandler = delegate
+        {
+            UpdateText();
+        };
+        button1.Click += showEventHandler;
+        button1.Click += delegate
+        {
+            ShowSomeMessage();
+        };
+        // button1.Click -= showEventHandler;
     }
 
-    //private void button1_Click(object sender, EventArgs e)
-    //{
-    //    NewMethod();
-    //}
-
-    private void NewMethod()
+    private static void ShowSomeMessage()
     {
-        DataList = SomeExtensions.Seed(100000).ToList();
-        DataList.Clear();
-        DataList = null;
-        GC.Collect(0, GCCollectionMode.Forced, true, true);
-        GC.Collect(0, GCCollectionMode.Forced, true, true);
-        GC.Collect(0, GCCollectionMode.Forced, true, true);
+        MessageBox.Show("user has clicked a button!", "event raised");
+    }
+
+    private void UpdateText()
+    {
+        button1.Text = "some new text";
+    }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
     }
 }
 
