@@ -2,17 +2,18 @@
 
 public class Game
 {
-    public Position StartPosition = new(0, 0);
+    public Position StartPosition = new(1, 0);
     public Direction CurrentDirection;
     public Direction NextDirection;
-
     public Snake _snake;
     public Apple _apple;
+    private int _rate = 120;
+    public TimeSpan GameRate => TimeSpan.FromMilliseconds(_rate);
 
     public Game()
     {
         _snake = new Snake(StartPosition, 3);
-        _apple = AppleExtentions.CreateApple();
+        _apple = _apple.CreateApple();
         CurrentDirection = Direction.Right;
         NextDirection = Direction.Right;
     }
@@ -21,7 +22,7 @@ public class Game
 
     public void OnKeyPress(ConsoleKey key)
     {
-        Direction newDirection;
+        Direction newDirection = CurrentDirection;
         switch (key)
         {
             case ConsoleKey.UpArrow:
@@ -31,46 +32,52 @@ public class Game
                 newDirection = Direction.Down;
                 break;
             case ConsoleKey.LeftArrow:
+                var test = _snake;
                 newDirection = Direction.Left;
                 break;
             case ConsoleKey.RightArrow:
                 newDirection = Direction.Right;
                 break;
+            case ConsoleKey.End:
+                _rate = _rate > 10 ? _rate - 10 : _rate;
+                break;
+            case ConsoleKey.Delete:
+                _rate = _rate < 800 ? _rate + 10 : _rate;
+                break;
             default: return;
         }
 
-        if (newDirection == OppositeDirection(CurrentDirection))
-            return;
+        if (newDirection == CurrentDirection.OppositeDirection()) return;
         NextDirection = newDirection;
     }
-
-    public Direction OppositeDirection(Direction direction) =>
-        direction switch
-        {
-            Direction.Up => Direction.Down,
-            Direction.Down => Direction.Up,
-            Direction.Left => Direction.Right,
-            Direction.Right => Direction.Left,
-            _ => throw new Exception()
-        };
 
     public void Render()
     {
         Console.Clear();
-        _snake.Render();
+        _snake.Render(this);
         _apple.Render();
         Console.SetCursorPosition(0, 0);
     }
 
     public void OnTick()
     {
-        if(IsGameOver) throw new Exception();
+        if (IsGameOver) throw new Exception();
         CurrentDirection = NextDirection;
         _snake.Move(CurrentDirection);
         if (_snake.Head.Equals(_apple.Position))
         {
             _snake.Grow();
-            _apple = AppleExtentions.CreateApple();
+            _apple = _apple.CreateApple();
         }
+    }
+}
+
+public static class GameExtensions
+{
+    public static void RotateSnakeIfBounds(this Game game)
+    {
+        if (game._snake.Head.Left == Console.WindowWidth - 6 || game._snake.Head.Left == 0 ||
+            game._snake.Head.Top == Console.WindowHeight - 6 || game._snake.Head.Top == 0)
+            game.NextDirection = game.CurrentDirection.OppositeDirection();
     }
 }

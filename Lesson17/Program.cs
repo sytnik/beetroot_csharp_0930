@@ -11,7 +11,6 @@ using System.Text;
 using Lesson17;
 
 Console.OutputEncoding = Encoding.UTF8;
-var rate = TimeSpan.FromMilliseconds(120);
 var game = new Game();
 
 using (var token = new CancellationTokenSource())
@@ -21,7 +20,7 @@ using (var token = new CancellationTokenSource())
     {
         game.OnTick();
         game.Render();
-        await Task.Delay(rate);
+        await Task.Delay(game.GameRate);
     } while (!game.IsGameOver);
 
     token.Cancel();

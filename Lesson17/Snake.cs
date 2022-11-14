@@ -11,7 +11,7 @@ public class Snake
 
     public Snake(Position location, int size = 1)
     {
-        WholeBody = new List<Position>{location};
+        WholeBody = new List<Position> {location};
         GrowthRemaining = Math.Max(0, size - 1);
     }
 
@@ -26,11 +26,11 @@ public class Snake
             Direction.Right => Head.RightBy(1),
             _ => throw new Exception(""),
         };
-        if (WholeBody.Contains(newHead) || !IsPositionValid(newHead))
-        {
-            IsAlive = false;
-            return;
-        }
+        // if (WholeBody.Contains(newHead) || !IsPositionValid(newHead))
+        // {
+        //     IsAlive = false;
+        //     return;
+        // }
 
         WholeBody.Insert(0, newHead);
         if (GrowthRemaining > 0) GrowthRemaining--;
@@ -43,17 +43,22 @@ public class Snake
         GrowthRemaining++;
     }
 
-    public void Render()
+
+    public bool IsPositionValid(Position pos) =>
+        pos.Top >= 0 && pos.Left >= 0;
+}
+
+public static class SnakeExtensions
+{
+    public static void Render(this Snake snake, Game game)
     {
-        Console.SetCursorPosition(Head.Left, Head.Top);
+        game.RotateSnakeIfBounds();
+        Console.SetCursorPosition(snake.Head.Left, snake.Head.Top);
         Console.Write("😃");
-        foreach (var elem in Body)
+        foreach (var elem in snake.Body)
         {
             Console.SetCursorPosition(elem.Left, elem.Top);
             Console.Write("🧊");
         }
     }
-
-    public bool IsPositionValid(Position pos) =>
-        pos.Top >= 0 && pos.Left >= 0;
 }

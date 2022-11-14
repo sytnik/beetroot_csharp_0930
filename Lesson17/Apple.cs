@@ -4,27 +4,25 @@ public class Apple
 {
     public Position Position { get; set; }
 
-    public Apple(Position position)
-    {
-        Position = position;
-    }
-
-    public void Render()
-    {
-        Console.SetCursorPosition(Position.Left, Position.Top);
-        Console.Write("🍏");
-    }
+    public Apple(Position position) => Position = position;
 }
 
-public static class AppleExtentions
+public static class SomeOtherAppleExtentions
 {
-    public static Apple CreateApple()
+    public static Apple CreateApple(this Apple apple)
     {
         var rows = 20;
         var columns = 20;
         var random = new Random();
         var top = random.Next(0, rows + 1);
         var left = random.Next(0, columns + 1);
-        return new Apple(new Position(top, left));
+        apple = new Apple(new Position(top, left));
+        return apple;
+    }
+
+    public static void Render(this Apple apple)
+    {
+        Console.SetCursorPosition(apple.Position.Left, apple.Position.Top);
+        Console.Write("🍏");
     }
 }
