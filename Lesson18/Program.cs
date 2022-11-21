@@ -10,6 +10,7 @@ var faker = new Faker<User>()
     .RuleFor(u => u.Email, f => f.Internet.Email())
     .RuleFor(u => u.Password, f => f.Internet.Password())
     .RuleFor(u => u.BirtDate, f => f.Date.Past(30))
+    .RuleFor(u => u.Description, f => f.Lorem.Paragraph(10))
     .UseSeed(123);
 var users = faker.Generate(1000);
 
