@@ -1,8 +1,4 @@
-﻿using Lesson19;
-using System.Reflection;
-using Bogus;
-
-object someObj = new TestClass(10);
+﻿object someObj = new TestClass(10);
 var type = someObj.GetType();
 var assembly = type.Assembly.FullName;
 var members = type.GetMembers(
