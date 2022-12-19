@@ -7,12 +7,19 @@ var windowsAuth = "Integrated Security=True;";
 var sqlAuth = "User=sa;Password=sa/ics5603;";
 var connectionString = $"Server=127.0.0.1;{sqlAuth}Database=newdb;";
 var users = new List<User1>();
-await GetJoinedData(connectionString);
+await CreateTable(connectionString);
 // await DeleteSomeDataById(connectionString);
 // await InsertViaDapper(connectionString);
 // ReadUsersSqlClient(users, connectionString);
 // await UseDapper(connectionString);
 var users2 = users;
+
+static async Task CreateTable(string conn)
+{
+    await using var connection = new SqlConnection(conn);
+    await connection.ExecuteAsync("create table newtable1(Id int)");
+    Console.WriteLine();
+}
 
 static async Task UseDapper(string conn)
 {

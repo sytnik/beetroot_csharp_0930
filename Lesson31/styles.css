@@ -1,0 +1,26 @@
+h1 {
+    color: red;
+    background: yellow;
+    border: 3px solid black;
+    cursor: progress;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    height: 100px;
+    margin: 20px 30px 20px 30px;
+    padding: 10px 15px 10px 15px;
+    text-align: center;
+    width: 250px;
+    font-weight: 900 !important;
+}
+
+.h2class {
+    color: green;
+}
+
+#header3{
+    color: aqua;
+}
+
+table, #header3, .h2class {
+    border: 1px solid gray;
+}
