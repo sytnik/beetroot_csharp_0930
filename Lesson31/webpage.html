@@ -5,10 +5,22 @@
     <link href="styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <button type="button" class="btn btn-primary">Button1</button>
+    <button type="button" class="btn btn-primary"
+    onclick="alert('button clicked')">Button1</button>
+    <button id="btn2" type="button" class="btn btn-primary"
+    onclick="onclick3(this.id)">on the same page</button>
+    <button type="button" class="btn btn-primary"
+    onclick="declareVariables()">external</button>
+
+    <input id="addElem">
+<!-- 123 -->
+    <ul id="list1">
+    </ul>
+
     <h1>h1 header</h1>
     <h2 class="h2class">h2 header</h2>
     <h3 id="header3">h3 header</h3>
@@ -35,10 +47,11 @@
     <p><i>just</i><br><b>text</b></p>
     <b>bold text</b>
     <a href="https://google.com">google</a>
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-    </ul>
     <img src="download.png">
 </body>
+<script>
+    function buttonClick()
+    {
+        alert('button 2 clicked')
+    }
+</script>
