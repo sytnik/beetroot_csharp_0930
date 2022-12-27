@@ -1,4 +1,6 @@
-﻿namespace Lesson34.DAO;
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Lesson34.DAO;
 
 public class NewDbContext : DbContext
 {

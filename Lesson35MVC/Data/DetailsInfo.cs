@@ -1,4 +1,6 @@
-﻿namespace Lesson34.DAO;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Lesson34.DAO;
 
 public class DetailsInfo
 {
