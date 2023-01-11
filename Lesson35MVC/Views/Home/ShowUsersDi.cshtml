@@ -1,13 +1,10 @@
-﻿@model List<Lesson35MVC.Data.User>
+﻿@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = "Home Page";
+    var users = await NewDb.Users.ToListAsync();
 }
 <div class="text-center">
-    <h1 class="display-4">Welcome @User.Identity?.Name</h1>
-    @if (User.Identity is {IsAuthenticated: true})
-    {
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    }
+    <h1 class="display-4">List users</h1>
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -20,7 +17,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var user in Model)
+            @foreach (var user in users)
             {
                 <tr>
                     <td>@user.Id</td>

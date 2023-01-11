@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Lesson34.DAO;
+namespace Lesson35MVC.Data;
 
 public class NewDbContext : DbContext
 {

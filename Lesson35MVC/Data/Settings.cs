@@ -1,8 +1,7 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using Microsoft.Data.SqlClient;
 
-namespace Lesson34.Values;
+namespace Lesson35MVC.Data;
 
 public static class Settings
 {

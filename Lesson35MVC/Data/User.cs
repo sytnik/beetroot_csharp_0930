@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Lesson34.Model;
 
-namespace Lesson34.DAO;
+namespace Lesson35MVC.Data;
 
 public record User : UserModel
 {

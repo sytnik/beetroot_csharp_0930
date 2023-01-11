@@ -1,4 +1,4 @@
-﻿namespace Lesson34.DAO;
+﻿namespace Lesson35MVC.Data;
 
 public class Department
 {

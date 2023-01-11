@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Lesson34.Model;
+namespace Lesson35MVC.Data;
 
 public record UserModel
 {
