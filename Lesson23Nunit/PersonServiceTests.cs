@@ -45,7 +45,7 @@ public class PersonServiceTests
     public int GetPersonById_CheckId(int id)
     {
         var person = _service.GetPersonById(id);
-        return person is not null ? person.Id : -1;
+        return person?.Id ?? -1;
     }
 
 

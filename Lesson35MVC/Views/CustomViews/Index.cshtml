@@ -1,0 +1,54 @@
+﻿@model List<Lesson35MVC.Data.User>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<img src="img/download.png" asp-append-version="true"/>
+<div class="text-center">
+    <h1 class="display-4">Welcome @User.Identity?.Name</h1>
+    @if (User.Identity is {IsAuthenticated: true})
+    {
+        <p>Some data for any auth user</p>
+    }
+    @if (User.IsInRole("Admin"))
+    {
+        <p>Some data just for the admin</p>
+    }
+    @if (User.IsInRole("Support"))
+    {
+        <p>Some data just for the Support</p>
+    }
+    @if (User.IsInRole("Admin") || User.IsInRole("Support"))
+    {
+        <p>Some data either for Admin or Support</p>
+    }
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">@IndexTableHeaders[0]</th>
+                <th scope="col">@IndexTableHeaders[1]</th>
+                <th scope="col">@IndexTableHeaders[2]</th>
+                <th scope="col">@IndexTableHeaders[3]</th>
+                <th scope="col">@IndexTableHeaders[4]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Info</td>
+                    <td>
+                        <a asp-controller="Home" asp-action="EditUser"
+                           asp-route-param="@user.Id">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

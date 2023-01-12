@@ -4,6 +4,7 @@ namespace Lesson35MVC.Data;
 
 public record User : UserModel
 {
+    public bool IsAvailable { get; set; }
     public DetailsInfo Details { get; set; }
     public Department Department { get; set; }
     [NotMapped] public string FullName => $"{FirstName} {LastName}";

@@ -1,0 +1,15 @@
+﻿global using Lesson34.DAO;
+global using Lesson34.Model;
+global using Lesson34.WebService;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.Data.SqlClient;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.IdentityModel.Tokens;
+global using System.ComponentModel.DataAnnotations;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
+global using static Lesson34.Values.Settings;

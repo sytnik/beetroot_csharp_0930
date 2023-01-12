@@ -106,7 +106,7 @@ async Task<int> SquareAsync(int n)
 
 IEnumerable<int> GetInts(int n)
 {
-    for (int i = 0; i < n; i++)
+    for (var i = 0; i < n; i++)
     {
         yield return i;
     }
@@ -114,7 +114,7 @@ IEnumerable<int> GetInts(int n)
 
 async IAsyncEnumerable<int> GetIntsAsync(int n)
 {
-    for (int i = 0; i < n; i++)
+    for (var i = 0; i < n; i++)
     {
         await Task.Delay(0);
         yield return i;
@@ -123,12 +123,11 @@ async IAsyncEnumerable<int> GetIntsAsync(int n)
 
 public class SomeDataStorage
 {
-    private List<string> someData =
-        new List<string> {"element1", "element2", "element3", "element4", "element5"};
+    private List<string> someData = new() {"element1", "element2", "element3", "element4", "element5"};
 
     public async IAsyncEnumerable<string> GetElementAsync()
     {
-        for (int i = 0; i < someData.Count; i++)
+        for (var i = 0; i < someData.Count; i++)
         {
             Console.WriteLine($"Get {i + 1} item");
             await Task.Delay(2000);
@@ -148,9 +147,9 @@ static class ReflectionExt
     public static bool IsAsyncMethod(Type classType, string methodName)
     {
         // Obtain the method with the specified name.
-        MethodInfo method = classType.GetMethod(methodName);
+        var method = classType.GetMethod(methodName);
 
-        Type attType = typeof(AsyncStateMachineAttribute);
+        var attType = typeof(AsyncStateMachineAttribute);
 
         // Obtain the custom attribute for the method. 
         // The value returned contains the StateMachineType property. 

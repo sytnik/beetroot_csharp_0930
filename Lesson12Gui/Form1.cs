@@ -2,7 +2,7 @@ namespace Lesson12Gui;
 
 public partial class Form1 : Form
 {
-    public List<ShortRecord> RecordList = new List<ShortRecord>();
+    public List<ShortRecord> RecordList = new();
 
     public sealed record ShortRecord(int Id = 100, string Name = "default");
 
@@ -11,11 +11,7 @@ public partial class Form1 : Form
         InitializeComponent();
         for (int i = 0; i < 100; i++)
             RecordList.Add(new ShortRecord(i + 1, $"element{i + 1}"));
-
-
         InitListbox(listBox1);
-
-        // label1.Text = "12345";
     }
 
     private void InitListbox(ListBox lbBox)

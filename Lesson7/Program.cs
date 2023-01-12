@@ -95,7 +95,6 @@ public class MyNonStaticOne
     }
 }
 
-// todo hw samples
 public static class SomeCode7
 {
     public static string GlobalString = "myglobalstring";

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lesson17;
+﻿namespace Lesson17;
 
 public class TestClass
 {
@@ -13,11 +7,9 @@ public class TestClass
     public void Method1()
     {
         var format = "dddd, dd MMMM yyyy HH:mm:ss";
-        // var formattedDate1 = Lesson17.DateTimeExtensions.FormatDate(SomeDate, "dddd, dd MMMM yyyy HH:mm:ss");
         var formattedDate1 = SomeDate.FormatDate(format);
         var formattedDate2 = format.FormatDate(SomeDate);
         OutputData($"Case 1: {formattedDate1}");
-
         var numericList = new List<int> {1, 2, 3};
         var resultstring = numericList.OutputCollection();
         var someNestedList = new List<(int, int, string)> {(1, 2, "elem1")};
@@ -32,7 +24,6 @@ public class TestClass
 
     public void OutputData(string data) => Console.WriteLine(data);
 }
-
 
 internal static class DateTimeExtensions
 {

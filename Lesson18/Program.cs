@@ -3,7 +3,6 @@ using Lesson18;
 
 var intList = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-
 var faker = new Faker<User>()
     .RuleFor(u => u.Id, f => f.IndexFaker + 1)
     .RuleFor(u => u.Name, f => f.Name.FullName())

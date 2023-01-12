@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Lesson31Dbfirst;
+﻿namespace Lesson31Dbfirst;
 
 public partial class User
 {

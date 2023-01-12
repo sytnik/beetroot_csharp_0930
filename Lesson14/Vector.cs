@@ -36,7 +36,6 @@ public struct Vector : IEquatable<Vector>
         }
     }
 
-
     public bool Equals(Vector other)
         => other.X == X && other.Y == Y;
 

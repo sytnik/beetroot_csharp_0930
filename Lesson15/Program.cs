@@ -5,14 +5,10 @@ newList.AddElement(2);
 newList.AddElement(2);
 newList.AddElement(3);
 newList.AddElement(4);
-
-newList.AddBatchElements(new []{1,2,3,4});
+newList.AddBatchElements(new[] {1, 2, 3, 4});
 newList.RemoveElement(4);
 newList.RemoveByIndex(4);
 
-
-
-Console.WriteLine("Hello, World!");
 var list = new List<SomeBaseType>
 {
     new OtherType1

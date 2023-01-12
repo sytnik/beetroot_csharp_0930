@@ -26,12 +26,6 @@ public class Snake
             Direction.Right => Head.RightBy(1),
             _ => throw new Exception(""),
         };
-        // if (WholeBody.Contains(newHead) || !IsPositionValid(newHead))
-        // {
-        //     IsAlive = false;
-        //     return;
-        // }
-
         WholeBody.Insert(0, newHead);
         if (GrowthRemaining > 0) GrowthRemaining--;
         else WholeBody.RemoveAt(WholeBody.Count - 1);

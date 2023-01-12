@@ -1,6 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Lesson30;
 
@@ -22,7 +21,6 @@ internal class NewDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Book> Book { get; set; }
     public DbSet<Author> Author { get; set; }
-    public DbSet<BookAuthor> BookAuthor { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(ConnectionStringFromCode);
@@ -47,16 +45,18 @@ internal class NewDbContext : DbContext
             .UsingEntity<BookAuthor>(
                 entityTypeBuilder => entityTypeBuilder
                     .HasOne(bookAuthor => bookAuthor.Author)
-                    .WithMany()
+                    .WithMany(author => author.AuthorBooks)
                     .HasForeignKey(bookAuthor => bookAuthor.AuthorId)
                     .OnDelete(DeleteBehavior.Restrict),
                 entityTypeBuilder => entityTypeBuilder
                     .HasOne(bookAuthor => bookAuthor.Book)
-                    .WithMany()
+                    .WithMany(book => book.AuthorBooks)
                     .HasForeignKey(bookAuthor => bookAuthor.BookId)
                     .OnDelete(DeleteBehavior.Restrict),
-                entityTypeBuilder => entityTypeBuilder
-                    .HasKey(bookAuthor => new {bookAuthor.BookId, bookAuthor.AuthorId})
-            );
+                entityTypeBuilder =>
+                {
+                    entityTypeBuilder
+                        .HasKey(bookAuthor => new { bookAuthor.BookId, bookAuthor.AuthorId });
+                });
     }
 }

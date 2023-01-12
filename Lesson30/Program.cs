@@ -8,7 +8,6 @@ await CreateUser();
 await UpdateUser(202);
 await ReadData();
 
-
 static async Task GetData()
 {
     await using var context = new NewDbContext();
@@ -30,6 +29,7 @@ static async Task GetData()
         .ToListAsync();
     var authors = await context.Author
         .Include(author => author.Books)
+        .Include(author => author.AuthorBooks).ThenInclude(author => author.Book)
         .ToListAsync();
     foreach (var book in books)
     {
@@ -44,7 +44,7 @@ static async Task GetData()
         .Include(user1 => user1.Department)
         .Include(user1 => user1.Details)
         .First(user1 => user1.Id == 1);
- 
+
 
     var department2 = context.Set<Department>()
         .Include(department => department.Users)
@@ -91,7 +91,7 @@ static async Task UpdateUser(int id)
 {
     await using var context = new NewDbContext();
     var user = await context.Users.FirstOrDefaultAsync(user => user.Id == 202);
-    var updatedUser = user with {FirstName = "UpdatedName", Info = "This was recently updated"};
+    var updatedUser = user with { FirstName = "UpdatedName", Info = "This was recently updated" };
     context.Entry(user).CurrentValues.SetValues(updatedUser);
     await context.SaveChangesAsync();
 }
@@ -106,7 +106,6 @@ static async Task ReadData()
         .ToListAsync();
     Console.WriteLine();
 }
-
 
 await ReadData();
 

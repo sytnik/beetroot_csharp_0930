@@ -1,14 +1,12 @@
-﻿// Console.WriteLine("Hello, World!");
+﻿using System.Text;
+using Lesson17;
+
 // var iterator = 0;
 // var list = new List<string> {"elem1", "elem2", "elem3", "elem4", "elem5"};
 // do
 // {
 //     Console.WriteLine($"{iterator + 1} - {list[iterator++]}");
 // } while (iterator < list.Count);
-
-
-using System.Text;
-using Lesson17;
 
 Console.OutputEncoding = Encoding.UTF8;
 var game = new Game();

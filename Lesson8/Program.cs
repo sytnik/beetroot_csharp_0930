@@ -11,7 +11,6 @@ var intisdefault = 3 == default;
 Console.WriteLine(
     $"{(list.Any() ? $"{string.Join("\r\n", list)}" : "No customers found")}");
 
-
 (string, string, string)[] SearchCustomerByNumber(
     string input,
     List<(string, string, string)> collection)
@@ -23,7 +22,6 @@ Console.WriteLine(
         person.Item3.Contains(input)).ToArray();
 }
 
-
 (string, string, string)[] SearchCustomer(
     string input,
     List<(string, string, string)> collection) =>
@@ -31,7 +29,6 @@ Console.WriteLine(
         person.Item1.Contains(input, StringComparison.OrdinalIgnoreCase) ||
         person.Item2.Contains(input, StringComparison.OrdinalIgnoreCase) ||
         person.Item3.Contains(input)).ToArray();
-
 
 List<(string FirstName, string LastName, string PhoneNumber)> ReadFile(string path)
 {
@@ -57,7 +54,6 @@ void AddPhoneBookRecord(string path)
         path,
         new[] {$"\r\n{firstName},{lastName},{phoneNumber}"});
 }
-
 
 void InputValue(out string result, string fieldName)
 {

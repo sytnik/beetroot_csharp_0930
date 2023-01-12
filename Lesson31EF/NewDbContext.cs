@@ -5,7 +5,6 @@ namespace Lesson31EF;
 
 internal class NewDbContext : DbContext
 {
-
     protected string ConnectionStringFromCode =
         new SqlConnectionStringBuilder
         {

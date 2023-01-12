@@ -5,6 +5,9 @@ public class CompanyRepository : ICompanyRepository
     private readonly NewDbContext _context;
     public CompanyRepository(NewDbContext context) => _context = context;
 
+    public Task<Manager> GetManager(AuthModel auth) =>
+        _context.Manager.FirstOrDefaultAsync(manager => manager.Login == auth.Login && manager.Password == auth.Password);
+
     public async Task<Department> GetDepartmentAsync() =>
         await _context.Set<Department>()
             .Include(department => department.Users)
@@ -41,7 +44,7 @@ public class CompanyRepository : ICompanyRepository
     {
         var existingUser = await _context.Set<User>()
             .FirstOrDefaultAsync(user => user.Id == id);
-        return await ValidateAndProcess(existingUser, 
+        return await ValidateAndProcess(existingUser,
             () => _context.Users.Remove(existingUser!));
         // if (existingUser is null) return;
         // _context.Users.Remove(existingUser);

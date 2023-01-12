@@ -1,8 +1,4 @@
-﻿//int result = 1;
-//result = Method1(10, "1");
-//Console.WriteLine($"Result {result}");
-
-int? int1 = 5;
+﻿int? int1 = 5;
 List<int> list = new List<int> {1, 34, 5, 4};
 list.Remove(34);
 int result = 0;
@@ -55,7 +51,6 @@ int Method1(int var1 = 5, string var2 = "10")
 
 void IncrementList(ref int sum, List<int> result, params int[] list2)
 {
-    //result = new List<int>();
     for (int i = 0; i < list2.Length; i++)
     {
         result.Add(list2[i] += 1);

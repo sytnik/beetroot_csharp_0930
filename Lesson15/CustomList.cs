@@ -57,9 +57,9 @@ public class CustomList<T> : IEnumerable
                 index, elementCounter - index);
             _array = arrayForCopy;
         }
+
         elementCounter--;
     }
-
 
     private void Resize()
     {

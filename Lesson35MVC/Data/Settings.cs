@@ -15,4 +15,6 @@ public static class Settings
     {
         ReferenceHandler = ReferenceHandler.IgnoreCycles
     };
+
+    public static string AppMemoryState;
 }

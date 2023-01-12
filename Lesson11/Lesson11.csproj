@@ -11,8 +11,4 @@
       <ProjectReference Include="..\Lesson11Lib\Lesson11Lib.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Classes" />
-    </ItemGroup>
-
 </Project>

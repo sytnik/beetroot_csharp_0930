@@ -1,8 +1,7 @@
-﻿namespace Lesson11.Classes;
+﻿namespace Lesson11Lib.Code;
 
 public class EntityWithIdName
 {
-    
     public EntityWithIdName(int id, string name)
     {
         Id = id;
@@ -22,5 +21,4 @@ public class EntityWithIdName
     {
         return $"{Id} - {Name}";
     }
-    
 }

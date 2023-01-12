@@ -10,9 +10,7 @@ var list = SearchCustomerByNumber(Console.ReadLine(), phonebook);
 var intisdefault = 3 == default;
 Console.WriteLine(
     $"{(list.Any() ? $"{string.Join("\r\n", list)}" : "No customers found")}");
-
 object newobj = 1;
-
 var myclassObj = new MyClass();
 var myclassObjWithValue = new MyClass(15);
 myclassObj.Number = 5;
@@ -78,7 +76,6 @@ void SomeMethod()
     }
 }
 
-
 (string, string, string)[] SearchCustomerByNumber(
     string input,
     List<(string, string, string)> collection)
@@ -90,7 +87,6 @@ void SomeMethod()
         person.Item3.Contains(input)).ToArray();
 }
 
-
 (string, string, string)[] SearchCustomer(
     string input,
     List<(string, string, string)> collection) =>
@@ -98,7 +94,6 @@ void SomeMethod()
         person.Item1.Contains(input, StringComparison.OrdinalIgnoreCase) ||
         person.Item2.Contains(input, StringComparison.OrdinalIgnoreCase) ||
         person.Item3.Contains(input)).ToArray();
-
 
 List<(string FirstName, string LastName, string PhoneNumber)> ReadFile(string path)
 {
@@ -124,7 +119,6 @@ void AddPhoneBookRecord(string path)
         path,
         new[] {$"\r\n{firstName},{lastName},{phoneNumber}"});
 }
-
 
 void InputValue(out string result, string fieldName)
 {
@@ -152,7 +146,6 @@ void WorkWithRegex()
         .IsMatch("test@mail");
 }
 
-
 [Serializable]
 public class MyClass
 {
@@ -164,7 +157,6 @@ public class MyClass
 
     public void SetStrValue(string userValue) =>
         _stringValue = userValue.All(c => char.IsDigit(c)) ? userValue : _stringValue;
-
 
     public string Name
     {

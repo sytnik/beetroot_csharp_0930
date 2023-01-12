@@ -1,7 +1,7 @@
-﻿@using Microsoft.EntityFrameworkCore
-@using Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    var users = await NewDb.Users.ToListAsync();
+    var data = Context.Session.GetString("data");
+    var users = await Repository.GetUsers();
 }
 <div class="text-center">
     <h1 class="display-4">List users</h1>
@@ -26,7 +26,7 @@
                     <td>@user.Info</td>
                     <td>
                         <a asp-controller="Home" asp-action="EditUser"
-                           asp-route-id="@user.Id">
+                           asp-route-param="@user.Id">
                             Edit
                         </a>
                     </td>

@@ -1,13 +1,35 @@
 ﻿@model List<Lesson35MVC.Data.User>
 @{
     ViewData["Title"] = "Home Page";
+    int.TryParse($"{TempData["UserId"]}", out var userId);
+    var selectedUser = userId > 0 ? Model.First(u => u.Id == userId) : Model.First();
 }
+<p>@Settings.AppMemoryState</p>
+<a asp-action="StopApp">StopApp</a>
+<p>test1</p>
+<p>other test2</p>
+<img src="img/download.png" asp-append-version="true"/>
 <div class="text-center">
     <h1 class="display-4">Welcome @User.Identity?.Name</h1>
     @if (User.Identity is {IsAuthenticated: true})
     {
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <p>Some data for any auth user</p>
     }
+    @if (User.IsInRole("admin"))
+    {
+        <p>Some data just for the admin</p>
+    }
+    @if (User.IsInRole("Support"))
+    {
+        <p>Some data just for the Support</p>
+    }
+    @if (User.IsInRole("Admin") || User.IsInRole("Support"))
+    {
+        <p>Some data either for Admin or Support</p>
+    }
+    <div class="col-md-6 m-auto">
+        @await Html.PartialAsync("EditUserPartial", selectedUser)
+    </div>
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -16,7 +38,9 @@
                 <th scope="col">@IndexTableHeaders[1]</th>
                 <th scope="col">@IndexTableHeaders[2]</th>
                 <th scope="col">@IndexTableHeaders[3]</th>
+                <th>View user</th>
                 <th scope="col">@IndexTableHeaders[4]</th>
+                <th>Delete user</th>
             </tr>
             </thead>
             <tbody>
@@ -28,11 +52,26 @@
                     <td>@user.LastName</td>
                     <td>@user.Info</td>
                     <td>
-                        <a asp-controller="Home" asp-action="EditUser"
-                           asp-route-id="@user.Id">
-                            Edit
+                        <a asp-action="ViewUser" asp-route-id="@user.Id">
+                            View
                         </a>
                     </td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <td>
+                            <a asp-action="EditUser" asp-route-id="@user.Id">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+
+                            <a asp-action="DeleteUser" asp-route-userId="@user.Id"
+                               onclick=@($"return confirm('Are you sure to delete {user.FullName}?')")>
+                                Delete user
+                            </a>
+
+                        </td>
+                    }
                 </tr>
             }
             </tbody>

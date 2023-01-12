@@ -1,4 +1,4 @@
-namespace Lesson17Test;
+namespace Lesson16Gui;
 
 public partial class Form1 : Form
 {
@@ -7,16 +7,10 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        showEventHandler = delegate
-        {
-            UpdateText();
-        };
+        showEventHandler = delegate { UpdateText(); };
         button1.Click += showEventHandler;
-        button1.Click += delegate
-        {
-            ShowSomeMessage();
-        };
-        // button1.Click -= showEventHandler;
+        button1.Click += delegate { ShowSomeMessage(); };
+        button1.Click -= showEventHandler;
     }
 
     private static void ShowSomeMessage()
@@ -52,7 +46,7 @@ public static class SomeExtensions
 {
     public static IEnumerable<SomeData> Seed(int count)
     {
-        for (int i = 1; i < count; i++)
+        for (var i = 1; i < count; i++)
         {
             yield return new SomeData(i, $"somename{i}", $"somedata{i}");
         }
@@ -61,7 +55,7 @@ public static class SomeExtensions
     public static List<SomeData> Seed2(int count)
     {
         var temp = new List<SomeData>();
-        for (int i = 1; i < count; i++)
+        for (var i = 1; i < count; i++)
         {
             temp.Add(new SomeData(i, $"somename{i}", $"somedata{i}"));
         }

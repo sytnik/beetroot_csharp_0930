@@ -28,7 +28,6 @@ var ci = handle.Unwrap();
 var val = ci.GetType().GetMethod("SomeMethod")
     .Invoke(ci, new object[] {1});
 
-
 var faker = new Faker<User>()
     .RuleFor(u => u.Id, f => f.IndexFaker + 1)
     .RuleFor(u => u.Name, f => f.Name.FullName())
@@ -38,6 +37,7 @@ var faker = new Faker<User>()
     .UseSeed(123);
 var users = faker.Generate(50);
 var rnd = new Random();
+
 for (int i = 0; i < users.Count; i++)
 {
     users[i].Friends = users
@@ -51,8 +51,8 @@ for (int i = 0; i < users.Count; i++)
 //     .RuleFor(u => u.Friends, f =>
 //         f.PickRandom(users, 5).ToList());
 // var users2 = faker2.Generate(50);
-
 // var allusers = users.Zip(users2);
+
 var userdata = users
     .Select(u => new CounterRecord(u.Id,
         u.About.Split(" ").Distinct().ToList(), -1, -1)).ToList();

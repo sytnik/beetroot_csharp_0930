@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace Lesson20Lib.Entities;
+﻿namespace Lesson20Lib.Entities;
 
 public class Department
 {

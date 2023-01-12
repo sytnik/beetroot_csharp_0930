@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace Lesson31Dbfirst;
 
-namespace Lesson31Dbfirst;
-
-public partial class Department
+public class Department
 {
     public int Id { get; set; }
 

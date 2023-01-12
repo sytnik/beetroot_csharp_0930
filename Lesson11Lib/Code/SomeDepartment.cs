@@ -1,6 +1,4 @@
-﻿using Lesson10.Entities;
-
-namespace Lesson11.Classes;
+﻿namespace Lesson11Lib.Code;
 
 public class SomeDepartment : Department
 {

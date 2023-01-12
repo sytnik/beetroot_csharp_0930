@@ -36,7 +36,6 @@
         test1.CustomInt2 = 2;
         (int Id, string Name, double Quantity) test2 = (1, "str", 4.5);
         test2.Id = 1;
-
         var arr = new (int Id, string Name)[3][];
         arr[0] = new[] {(1, "elem01"), (2, "elem02"), (3, "elem03")};
         arr[1] = new[] {(4, "elem04"), (5, "elem05")};
@@ -54,7 +53,6 @@
             Console.Write(Environment.NewLine);
         }
 
-
         var arr2 = new (int Id, string Name)[2, 2];
         arr2[0, 0] = (1, "elem00");
         arr2[0, 1] = (2, "elem01");
@@ -70,7 +68,6 @@
             Console.Write(Environment.NewLine);
         }
 
-
         var elements = new[] {1, 2, 4, 5};
         elements = elements.OrderByDescending(i => i).ToArray();
         Console.WriteLine((int) SortAlgorithmType.InsertionSorting);
@@ -78,7 +75,6 @@
         Console.WriteLine(SortAlgorithmType.SelectionSorting);
         myvariable = 10;
         int var2 = 5;
-
         var result = testMethod(var2);
         result = testMethod(myvariable);
         int arrayValue = 0;
@@ -102,10 +98,7 @@
     {
         int arrayValue = 0;
         Console.WriteLine("\n Sorting array with bubble method  : ");
-        Console.WriteLine($"////////////////////////////////////////");
         Console.WriteLine();
-
-
         for (int i = 0; i < myArray.Length; i++)
         {
             for (int j = 0; j < myArray.Length - 1; j++)
@@ -190,7 +183,6 @@
         return myArray;
     }
 }
-
 
 public class TestClass
 {

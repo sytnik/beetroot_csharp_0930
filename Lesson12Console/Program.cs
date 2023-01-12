@@ -1,25 +1,24 @@
-﻿var times = new List<SomeEntity>()
+﻿var times = new List<SomeEntity>
 {
-    new SomeEntity("lesson1", TimeOnly.FromDateTime(DateTime.Now.AddHours(-5))),
-    new SomeEntity("lesson1", TimeOnly.FromDateTime(DateTime.Now))
+    new("lesson1", TimeOnly.FromDateTime(DateTime.Now.AddHours(-5))),
+    new("lesson1", TimeOnly.FromDateTime(DateTime.Now))
 };
-
 
 var areEqual = times[0].Equals(times[1]);
 var areEqual2 = times[0] == times[1];
 var time = times[0].OutputTime();
 
-
-var fullRecord = new FullRecord();
-fullRecord.Id = 1;
-fullRecord.Name = "setProp";
+var fullRecord = new FullRecord
+{
+    Id = 1,
+    Name = "setProp"
+};
 
 var shortRecord = new ShortRecord(1);
 var shortRecord2 = new ShortRecord(1, "secondname");
 shortRecord2 = shortRecord2 with {Id = 5, Name = "newname"};
 
-foreach (var entity in times)
-    Console.WriteLine(entity);
+foreach (var entity in times) Console.WriteLine(entity);
 
 public record FullRecord
 {
@@ -43,7 +42,6 @@ public class BaseEntity
     public virtual string OutputTime() =>
         SomeTime.ToString("HH");
 }
-
 
 public class SomeEntity : BaseEntity
 {

@@ -1,18 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
+  <PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-	</PropertyGroup>
-
-	<ItemGroup>
+  </PropertyGroup>
+  <ItemGroup>
 		<PackageReference Include="Bogus" Version="34.0.2" />
 	</ItemGroup>
-
-	<ItemGroup>
+  <ItemGroup>
 		<ProjectReference Include="..\Lesson20Lib\Lesson20Lib.csproj" />
 	</ItemGroup>
-
 </Project>

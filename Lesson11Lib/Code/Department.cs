@@ -1,4 +1,4 @@
-﻿namespace Lesson11.Classes;
+﻿namespace Lesson11Lib.Code;
 
 public class Department : EntityWithIdName
 {
@@ -8,5 +8,4 @@ public class Department : EntityWithIdName
     {
         _employees = persons;
     }
-    
 }

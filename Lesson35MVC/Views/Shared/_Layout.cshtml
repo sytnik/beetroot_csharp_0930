@@ -28,9 +28,18 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-controller="Home" asp-action="ShowUsersDi">Show users</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">Login</a>
-                    </li>
+                    @if (User.Identity is {IsAuthenticated: false})
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Login">Login</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Logout">Logout</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

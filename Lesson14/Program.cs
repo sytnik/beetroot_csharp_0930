@@ -9,11 +9,9 @@ int length2 = (int) vector3;
 var newvector = vector1 + vector2;
 var getX = newvector[Dimension.X];
 newvector[Dimension.Y] = 15;
-
 var equals1 = vector1.Equals(vector2);
 var equalsOp = vector1 == vector2;
 var equals2 = vector2.Equals((object) vector3);
-
 var charArray = new[] {'r', 'n', 'x', 'y'};
 var doubleList = new List<double> {1.34, 4, 23.56};
 var enumerable = doubleList as IEnumerable<double>;

@@ -1,4 +1,4 @@
-﻿namespace Lesson11.Classes;
+﻿namespace Lesson11Lib.Code;
 
 public class Employee : Person
 {
@@ -20,19 +20,10 @@ public class Employee : Person
     {
         Id = id;
     }
-    
-    public void SetName(string name)
-    {
-        Name = SetNameLogics(name);
-    }
 
-    private string SetNameLogics(string name)
-    {
-        return $"{name}{Guid.NewGuid()}";
-    }
-    
-    public override string PrintIdNameFormatted()
-    {
-        return $"{Id} <-> {Name}";
-    }
+    public void SetName(string name) => Name = SetNameLogics(name);
+
+    private static string SetNameLogics(string name) => $"{name}{Guid.NewGuid()}";
+
+    public override string PrintIdNameFormatted() => $"{Id} <-> {Name}";
 }

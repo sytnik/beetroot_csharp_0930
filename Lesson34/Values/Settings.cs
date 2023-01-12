@@ -12,4 +12,8 @@ public static class Settings
     {
         ReferenceHandler = ReferenceHandler.IgnoreCycles
     };
+
+    public static string HostAddress = "https://localhost:443/";
+    public static byte[] JwtKey = "3Bmhkh4pq2sGsy7W9amGNTEq"u8.ToArray();
+
 }

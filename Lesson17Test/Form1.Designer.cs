@@ -1,4 +1,4 @@
-﻿namespace Lesson17Test
+﻿namespace Lesson16Gui
 {
     partial class Form1
     {

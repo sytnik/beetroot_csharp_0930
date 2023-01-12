@@ -1,4 +1,4 @@
-﻿namespace Lesson11.Classes;
+﻿namespace Lesson11Lib.Code;
 
 public class ConcreteEmployee : Employee
 {

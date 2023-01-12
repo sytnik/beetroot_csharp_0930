@@ -1,0 +1,33 @@
+﻿@model Lesson35MVC.Data.User
+<div class="col-md-6 m-auto">
+    <form asp-action="EditUser" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Id</label>
+            <input asp-for="Id" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">FirstName</label>
+            <input asp-for="FirstName" type="text" class="form-control"
+                   minlength="5" maxlength="50"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">LastName</label>
+            <input asp-for="LastName" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Info</label>
+            <textarea asp-for="Info" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">DepartmentId</label>
+            <input asp-for="DepartmentId" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Choose photo...</label>
+            <input class="form-control" name="img" type="file" id="img">
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Edit User</button>
+        </div>
+    </form>
+</div>

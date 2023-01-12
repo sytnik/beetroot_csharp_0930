@@ -6,7 +6,6 @@
 var allcars = parking.Transports
     .Where(transport => transport is Car car && car.HasAirbags);
 var prop = allcars.First();
-
 var parameters1 = parking.Transports[0].OutputParams();
 var parameters2 = parking.Transports[1].OutputParamsExt(DateTime.Now);
 var firstHasAirbags = DoesTransportHaveAirbags(parking.Transports[0]);
@@ -16,11 +15,7 @@ TransportStartEngine(parking.Transports[1]);
 int value = 40;
 var isEven = value.IsEven();
 Console.ReadLine();
-
-bool DoesTransportHaveAirbags(object transport)
-{
-    return transport is Car car ? car.HasAirbags : false;
-}
+bool DoesTransportHaveAirbags(object transport) => transport is Car car && car.HasAirbags;
 
 void TransportStartEngine(object transport)
 {
@@ -36,7 +31,8 @@ public static class DigitsExtensions
 public static class TransportExtensions
 {
     public static string OutputParamsExt(this Transport transport, DateTime time)
-        => $"{transport.Name} - engine of {transport.EngineSize} and {transport.WheelCount} wheels, data requested at {time}";
+        =>
+            $"{transport.Name} - engine of {transport.EngineSize} and {transport.WheelCount} wheels, data requested at {time}";
 }
 
 
@@ -61,7 +57,6 @@ public interface IHasEngine
     public int SoundLoudness { get; set; }
     private static string Vendor { get; set; }
     public int EngineSize { get; set; }
-
     public void EngineStart();
 }
 

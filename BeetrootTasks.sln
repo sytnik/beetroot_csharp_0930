@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson15", "Lesson15\Lesson
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson16", "Lesson16\Lesson16.csproj", "{807E336E-BC2C-4FC0-B0F9-D90A2F76CF37}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson16Test", "Lesson17Test\Lesson16Test.csproj", "{472BEAF3-7CDE-47A1-9E40-F6D900420E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson16Gui", "Lesson17Test\Lesson16Gui.csproj", "{472BEAF3-7CDE-47A1-9E40-F6D900420E7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson17", "Lesson17\Lesson17.csproj", "{80B45A65-2037-4322-AF97-845707F4E835}"
 EndProject
@@ -57,8 +57,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson23", "Lesson23\Lesson
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson23Nunit.Tests", "Lesson23Nunit\Lesson23Nunit.Tests.csproj", "{CA9D07E8-6B3E-48A0-A3E2-F7AD6F2A1844}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Template", "Template\Template.csproj", "{7B35A0B3-7B2C-4194-9F3B-6703322B4E04}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson28", "Lesson28\Lesson28.csproj", "{8AE7A8C5-7AC4-491A-ABF8-4F6C9C6E5693}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson30", "Lesson30\Lesson30.csproj", "{D0FE0E44-6351-4B58-80A4-9F44D66041E4}"
@@ -73,7 +71,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson34", "Lesson34\Lesson
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson35MVC", "Lesson35MVC\Lesson35MVC.csproj", "{529DEDF5-E129-4EA3-8043-030FBF9D6E2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson35Blazor", "Lesson35Blazor\Lesson35Blazor.csproj", "{16168DB8-4FBB-4CCE-8EA3-BFDFE39C9541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson35Blazor", "Lesson35Blazor\Lesson35Blazor.csproj", "{16168DB8-4FBB-4CCE-8EA3-BFDFE39C9541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson35MVC.UnitTests", "Lesson35MVC.UnitTests\Lesson35MVC.UnitTests.csproj", "{263F4B9E-97D5-4C55-81C4-D9D937DCD127}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson35MVC.IntegrationTests", "Lesson35MVC.IntegrationTests\Lesson35MVC.IntegrationTests.csproj", "{31C22053-135C-4A07-8319-0DB16014E711}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -189,10 +191,6 @@ Global
 		{CA9D07E8-6B3E-48A0-A3E2-F7AD6F2A1844}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA9D07E8-6B3E-48A0-A3E2-F7AD6F2A1844}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA9D07E8-6B3E-48A0-A3E2-F7AD6F2A1844}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B35A0B3-7B2C-4194-9F3B-6703322B4E04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B35A0B3-7B2C-4194-9F3B-6703322B4E04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B35A0B3-7B2C-4194-9F3B-6703322B4E04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B35A0B3-7B2C-4194-9F3B-6703322B4E04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8AE7A8C5-7AC4-491A-ABF8-4F6C9C6E5693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8AE7A8C5-7AC4-491A-ABF8-4F6C9C6E5693}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AE7A8C5-7AC4-491A-ABF8-4F6C9C6E5693}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -225,6 +223,14 @@ Global
 		{16168DB8-4FBB-4CCE-8EA3-BFDFE39C9541}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16168DB8-4FBB-4CCE-8EA3-BFDFE39C9541}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16168DB8-4FBB-4CCE-8EA3-BFDFE39C9541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{263F4B9E-97D5-4C55-81C4-D9D937DCD127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{263F4B9E-97D5-4C55-81C4-D9D937DCD127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{263F4B9E-97D5-4C55-81C4-D9D937DCD127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{263F4B9E-97D5-4C55-81C4-D9D937DCD127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C22053-135C-4A07-8319-0DB16014E711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C22053-135C-4A07-8319-0DB16014E711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C22053-135C-4A07-8319-0DB16014E711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C22053-135C-4A07-8319-0DB16014E711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
