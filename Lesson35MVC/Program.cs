@@ -18,7 +18,7 @@ builder.Services.AddHostedService<CustAppService>();
 builder.Services
     .AddAuthentication(options =>
         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie();
+    .AddCookie(o=>o.LoginPath="/home/login");
 builder.Services.AddSession();
 var app = builder.Build();
 // app.Lifetime.ApplicationStopping.Register(() =>

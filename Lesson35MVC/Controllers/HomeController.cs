@@ -163,6 +163,7 @@ public class HomeController : Controller
         return RedirectToAction("Index");
     }
 
+    [Authorize]
     public IActionResult Privacy() => View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
